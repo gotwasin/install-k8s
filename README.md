@@ -1,1 +1,1 @@
-# install-k8s
+# script for install kubernetes
