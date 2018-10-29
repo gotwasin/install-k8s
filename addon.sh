@@ -19,10 +19,13 @@ kubectl create -f https://raw.githubusercontent.com/gotwasin/install-k8s/v1.11.4
 kubectl create -f https://raw.githubusercontent.com/gotwasin/install-k8s/v1.11.4/template/grafana.yaml
 
 # This command will print the port exposed by the Grafana service. We need to connect to the floating IP:PORT later
+echo "port for access grafana"
 kubectl get svc -n kube-system | grep grafana
  
 # This command will print the port exposed by the Kubernetes dashboard service. We need to connect to the floating IP:PORT later
+echo "port for access dashboard"
 kubectl -n kube-system get service kubernetes-dashboard
 
 # This command will print a token that can be used to authenticate in the Kubernetes dashboard
+echo "token for dashboard"
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}') | grep "token:"
