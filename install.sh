@@ -18,9 +18,10 @@ add-apt-repository \
    $(lsb_release -cs) \
    stable"
 apt-get update && apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
-#apt-get install -y docker
-apt-get install -y kubeadm=1.11.4-00
-apt-get install -y kubectl=1.11.4-00
-apt-get install -y kubelet=1.11.4-00
+apt-get install -y kubelet kubeadm docker kubernetes-cni
+apt-get install -y kubeadm=1.11.4-00 --allow-downgrades
+apt-get install -y kubectl=1.11.4-00 --allow-downgrades
+apt-get install -y kubelet=1.11.4-00 --allow-downgrades
 apt-get autoremove -y
+apt-get clean
 
