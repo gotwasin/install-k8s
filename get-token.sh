@@ -1,3 +1,4 @@
+#!/bin/sh
 apt-get install -y jq
 postDataJson="{\"projectname\":\"wasin\"}"
 datamaster=$(curl  --header "Content-Type: application/json" --request POST --data ${postDataJson} http://203.150.107.66/get_data )
